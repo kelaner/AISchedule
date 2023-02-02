@@ -10,7 +10,7 @@
 
 # IDE
 /.vscode
-/.idea/
+/.idea
 
 # next.js
 /.next/
