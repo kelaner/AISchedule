@@ -1,15 +1,54 @@
 .main {
     min-height: 100vh;
+}
+
+.storeSelect {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.radio {
+    position: absolute;
+    top: 70px;
+    left: 5%;
+    transform: translateX(-5%);
+}
+
+.radioButton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    white-space:nowrap;
+}
+
+.yearMonth {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: right;
     justify-content: center;
 }
 
-.title {
-    font-size: 20px;
+.weekRadio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.value {
-    font-size: 16px;
+.weekRadio div {
+    text-align: center;
+    margin: 15px;
+    white-space:nowrap;
+}
+
+.week{
+    position: absolute;
+    top: 70px;
+    left: 90%;
+    transform: translateX(-90%);
 }
