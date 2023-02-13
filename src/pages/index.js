@@ -12,20 +12,30 @@ import dynamic from 'next/dynamic'
 const StoreSelect = dynamic(() => import('../components/StoreSelect'), {
     ssr: false,
 })
-
+const ThreeSelect = dynamic(() => import('../components/ThreeSelect'), {
+    ssr: false,
+})
 const MainRadio = dynamic(() => import('../components/MainRadio'), {
     ssr: false,
 })
-
 const WeekRadio = dynamic(() => import('../components/WeekRadio'), {
+    ssr: false,
+})
+const ScheduleTable = dynamic(() => import('@/components/ScheduleTable'), {
+    ssr: false,
+})
+
+const DeleteButton = dynamic(() => import('@/components/DeleteButton'), {
+    ssr: false,
+})
+
+const EditButton = dynamic(() => import('@/components/EditButton'), {
     ssr: false,
 })
 
 dayjs.locale('zh-cn');
 
 export default function Home() {
-
-
 
     return (
         <>
@@ -38,18 +48,20 @@ export default function Home() {
                     <Ap>
                         <div className={styles.storeSelect}><StoreSelect /></div>
                         <div className={styles.radio}>
-
                             <MainRadio />
                         </div>
-
-
                         <div className={styles.week}>
                             <WeekRadio />
                         </div>
-
-
-
-
+                        <div className={styles.three}>
+                            <ThreeSelect />
+                        </div>
+                        <div className={styles.edit}>
+                            <DeleteButton /> <EditButton />
+                        </div>
+                        <div className={styles.table}>
+                            <ScheduleTable />
+                        </div>
                     </Ap>
                 </ConfigProvider>
             </ main>
