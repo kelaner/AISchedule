@@ -1,48 +1,118 @@
 import React, { useState } from 'react';
 import { Table, Input, Button, Select } from 'antd';
+import dayjs from 'dayjs';
+
+const today = dayjs().day();
+
+const start = dayjs().startOf('week');
+const end = dayjs().endOf('week');
 
 const columns = [
     {
-        title: '周一',
+
+        title: <div> 周一<br />{start.format('MM月DD日')}</div>,
         dataIndex: 'mon',
         key: 'mon',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 1 === today ? '#69aed0' : '',
+                    border: `1px solid ${1 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 1 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
     {
-        title: '周二',
+        title: <div> 周二<br />{start.add(1, 'day').format('MM月DD日')}</div>,
         dataIndex: 'tue',
         key: 'tue',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 2 === today ? '#69aed0' : '',
+                    border: `1px solid ${2 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 2 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
     {
-        title: '周三',
+        title: <div> 周三<br />{start.add(2, 'day').format('MM月DD日')}</div>,
         dataIndex: 'wed',
         key: 'wed',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 3 === today ? '#69aed0' : '',
+                    border: `1px solid ${3 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 3 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
     {
-        title: '周四',
+        title: <div> 周四<br />{start.add(3, 'day').format('MM月DD日')}</div>,
         dataIndex: 'thu',
         key: 'thu',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 4 === today ? '#69aed0' : '',
+                    border: `1px solid ${4 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 4 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
     {
-        title: '周五',
+        title: <div> 周五<br />{start.add(4, 'day').format('MM月DD日')}</div>,
         dataIndex: 'fri',
         key: 'fri',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 5 === today ? '#69aed0' : '',
+                    border: `1px solid ${5 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 5 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
     {
-        title: '周六',
+        title: <div> 周六<br />{start.add(5, 'day').format('MM月DD日')}</div>,
         dataIndex: 'sat',
         key: 'sat',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 6 === today ? '#69aed0' : '',
+                    border: `1px solid ${6 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 6 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
     {
-        title: '周日',
+        title: <div> 周日<br />{end.format('MM月DD日')}</div>,
         dataIndex: 'sun',
         key: 'sun',
-        align: 'center'
+        align: 'center',
+        onHeaderCell: () => {
+            return {
+                style: {
+                    backgroundColor: 0 === today ? '#69aed0' : '',
+                    border: `1px solid ${0 === today ? 'darkblue' : '#f0f0f0'}`,
+                    color: 0 === today ? 'white' : 'black',
+                },
+            };
+        },
     },
 ];
 
@@ -131,6 +201,7 @@ const ScheduleTable = () => {
             dataSource={tableData}
             pagination={false}
             bordered={true}
+
         />
     );
 };
