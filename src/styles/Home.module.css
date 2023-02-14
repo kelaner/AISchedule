@@ -1,3 +1,4 @@
+/*全局*/
 .main {
     min-height: 100vh;
     display: flex;
@@ -6,10 +7,64 @@
     justify-content: center;
 }
 
-.title {
-    font-size: 20px;
+/*标题*/
+.title{
+    display: flex;
+    justify-content: center;
+    /* width: 1000px; */
+    margin-top: 0px;
+    margin-left: 0px;
+    font-size: 36px;
+}
+/*门店选择按钮*/
+.choose{
+    width: 100px;
+    height: 80px;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+/*分类筛选按钮*/
+.chooseit1{
+    width:auto;
+    height:60px;
+
 }
 
-.value {
+/*条件查找部分*/
+
+.fsegmented{
+font-size: 16px;
+height: auto;
+width: 500px;
+}
+.findit1{
+    width:auto;
+    height: auto;
+}
+/*操作按钮*/
+.chooseit2{
+    width:auto;
+    height:60px;
+}
+/* .value {
     font-size: 16px;
+} */
+.table{
+    width:30px;
+}
+/*通用宽度控制*/
+.formeralign{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    width: 1000px;
+}
+/*星期选择轴*/
+.beprimary{
+    margin-top: 5px;
+    width: 1000px;
+
 }
