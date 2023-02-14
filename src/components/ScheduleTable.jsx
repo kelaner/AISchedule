@@ -9,7 +9,6 @@ const end = dayjs().endOf('week');
 
 const columns = [
     {
-
         title: <div> 周一<br />{start.format('MM月DD日')}</div>,
         dataIndex: 'mon',
         key: 'mon',
