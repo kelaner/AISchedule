@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Card, Input } from 'antd';
+import { Table, Input, Button } from 'antd';
 
 const columns = [
     {
@@ -53,9 +53,7 @@ const TableRow = ({ workTime, name, position }) => {
     const [p, setP] = useState(position);
 
     return (
-        <Card
-            bodyStyle={{ padding: '1px' }}
-        >
+        <>
             {name ? (
                 <>
                     <Input
@@ -80,10 +78,13 @@ const TableRow = ({ workTime, name, position }) => {
                     cursor: "pointer",
                 }}
                     onClick={() => console.log('change')}
-
-                >开放班次</div>
+                >
+                    <Input
+                        value={"开放班次"}
+                    />
+                </div>
             )}
-        </Card>
+        </>
     );
 };
 const ScheduleTable = () => {

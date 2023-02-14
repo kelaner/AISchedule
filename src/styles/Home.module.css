@@ -74,4 +74,8 @@
     top: 180px;
     left: 80%;
     transform: translateX(-20%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
 }
