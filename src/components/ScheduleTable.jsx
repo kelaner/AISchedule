@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Input, Button } from 'antd';
+import { Table, Input, Button, Select } from 'antd';
 
 const columns = [
     {
@@ -60,16 +60,22 @@ const TableRow = ({ workTime, name, position }) => {
                         placeholder="工作时间"
                         value={w}
                         onChange={(e) => setW(e.target.value)}
+                        style={{ textAlign: 'center' }}
+                        bordered={false}
                     />
                     <Input
                         placeholder="姓名"
                         value={n}
                         onChange={(e) => setN(e.target.value)}
+                        style={{ textAlign: 'center' }}
+                        bordered={false}
                     />
                     <Input
                         placeholder="职位"
                         value={p}
                         onChange={(e) => setP(e.target.value)}
+                        style={{ textAlign: 'center' }}
+                        bordered={false}
                     />
                 </>
             ) : (
@@ -79,9 +85,7 @@ const TableRow = ({ workTime, name, position }) => {
                 }}
                     onClick={() => console.log('change')}
                 >
-                    <Input
-                        value={"开放班次"}
-                    />
+                    开放班次
                 </div>
             )}
         </>
@@ -125,7 +129,9 @@ const ScheduleTable = () => {
         <Table
             columns={columns}
             dataSource={tableData}
-            pagination={false} />
+            pagination={false}
+            bordered={true}
+        />
     );
 };
 
