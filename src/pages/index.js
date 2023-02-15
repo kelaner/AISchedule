@@ -36,7 +36,8 @@ const EditButton = dynamic(() => import('@/components/EditButton'), {
 dayjs.locale('zh-cn');
 
 export default function Home() {
-
+    const now = dayjs();
+    const yearmonth = now.format('YYYY年MM月');
     return (
         <>
             <Head>
@@ -47,11 +48,15 @@ export default function Home() {
                 <ConfigProvider locale={zhCN}>
                     <Ap>
                         <div className={styles.storeSelect}><StoreSelect /></div>
-                        <div className={styles.radio}>
-                            <MainRadio />
+                        <div className={styles.yearMonth}>
+                            {yearmonth}
                         </div>
-                        <div className={styles.week}>
-                            <WeekRadio />
+                        <div className={styles.secondcom}>
+                            <MainRadio />
+                            <div className={styles.none}>&emsp;</div>
+                            <div className={styles.week}>
+                                <WeekRadio />
+                            </div>
                         </div>
                         <div className={styles.three}>
                             <ThreeSelect />
