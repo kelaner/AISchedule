@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Input, Button, Select } from 'antd';
+import { Table, Input } from 'antd';
 import dayjs from 'dayjs';
 
 const today = dayjs().day();
@@ -9,7 +9,6 @@ const end = dayjs().endOf('week');
 
 const columns = [
     {
-
         title: <div> 周一<br />{start.format('MM月DD日')}</div>,
         dataIndex: 'mon',
         key: 'mon',
@@ -133,6 +132,7 @@ const TableRow = ({ workTime, name, position }) => {
                         style={{ textAlign: 'center' }}
                         bordered={false}
                     />
+                    <br />
                     <Input
                         placeholder="姓名"
                         value={n}
@@ -140,6 +140,7 @@ const TableRow = ({ workTime, name, position }) => {
                         style={{ textAlign: 'center' }}
                         bordered={false}
                     />
+                    <br />
                     <Input
                         placeholder="职位"
                         value={p}
@@ -201,7 +202,6 @@ const ScheduleTable = () => {
             dataSource={tableData}
             pagination={false}
             bordered={true}
-
         />
     );
 };

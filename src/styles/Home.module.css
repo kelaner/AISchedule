@@ -9,12 +9,6 @@
     transform: translateX(-50%);
 }
 
-.radio {
-    position: absolute;
-    top: 70px;
-    left: 5%;
-    transform: translateX(-5%);
-}
 
 .radioButton {
     display: flex;
@@ -26,11 +20,35 @@
 }
 
 .yearMonth {
+    position: absolute;
+    top: 70px;
+    left: 5%;
+    transform: translateX(-5%);
+}
+
+.mainRadio {
     display: flex;
     flex-direction: column;
     align-items: right;
     justify-content: center;
 }
+
+.secondcom {
+    position: absolute;
+    top: 90px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 91%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.none {
+    width: 20vw;
+}
+
 
 .weekRadio {
     display: flex;
@@ -42,22 +60,17 @@
 
 .weekRadio div {
     text-align: center;
-    margin: 15px;
     white-space: nowrap;
 }
 
 .week {
-    position: absolute;
-    top: 70px;
-    width: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
 }
 
 .table {
     position: absolute;
     top: 230px;
-    width: 92%;
+    width: 91%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -72,10 +85,9 @@
 .edit {
     position: absolute;
     top: 180px;
-    left: 80%;
-    transform: translateX(-20%);
+    left: 95%;
+    transform: translateX(-95%);
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-
 }
