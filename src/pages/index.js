@@ -4,9 +4,6 @@ import dayjs from 'dayjs';
 import zhCN from 'antd/locale/zh_CN';
 import styles from '../styles/Home.module.css'
 import dynamic from 'next/dynamic'
-// import StoreSelect from "@/components/StoreSelect";
-// import MainRadio from '@/components/MainRadio';
-// import WeekRadio from "@/components/WeekRadio"
 
 // avoid dynamic error
 const StoreSelect = dynamic(() => import('../components/StoreSelect'), {
