@@ -1,40 +1,52 @@
 import Head from 'next/head'
+import { useState } from 'react';
 import { ConfigProvider, App as Ap } from 'antd';
-import dayjs from 'dayjs';
 import zhCN from 'antd/locale/zh_CN';
-import styles from '../styles/Home.module.css'
-import dynamic from 'next/dynamic'
-
-// avoid dynamic error
-const StoreSelect = dynamic(() => import('../components/StoreSelect'), {
-    ssr: false,
-})
-const ThreeSelect = dynamic(() => import('../components/ThreeSelect'), {
-    ssr: false,
-})
-const MainRadio = dynamic(() => import('../components/MainRadio'), {
-    ssr: false,
-})
-const WeekRadio = dynamic(() => import('../components/WeekRadio'), {
-    ssr: false,
-})
-const ScheduleTable = dynamic(() => import('@/components/ScheduleTable'), {
-    ssr: false,
-})
-
-const DeleteButton = dynamic(() => import('@/components/DeleteButton'), {
-    ssr: false,
-})
-
-const EditButton = dynamic(() => import('@/components/EditButton'), {
-    ssr: false,
-})
-
+import styles from '@/styles/Home.module.css'
+import dayjs from 'dayjs';
 dayjs.locale('zh-cn');
 
+// avoid dynamic error
+import dynamic from 'next/dynamic'
+const StoreSelect = dynamic(() => import('@/components/group/StoreSelect'), { ssr: false })
+const ThreeSelect = dynamic(() => import('@/components/group/ThreeSelect'), { ssr: false })
+const MainRadio = dynamic(() => import('@/components/MainRadio'), { ssr: false })
+const WeekRadio = dynamic(() => import('@/components/WeekRadio'), { ssr: false })
+const ScheduleTable = dynamic(() => import('@/components/ScheduleTable'), { ssr: false })
+const DeleteButton = dynamic(() => import('@/components/DeleteButton'), { ssr: false })
+const EditButton = dynamic(() => import('@/components/EditButton'), { ssr: false })
+const YearMonth = dynamic(() => import('@/components/YearMonth'), { ssr: false })
+const NameSelect = dynamic(() => import('@/components/group/NameSelect'), { ssr: false })
+const PositionSelect = dynamic(() => import('@/components/group/PositionSelect'), { ssr: false })
+const SkillSelect = dynamic(() => import('@/components/group/SkillSelect'), { ssr: false })
+
+
+
+
 export default function Home() {
-    const now = dayjs();
-    const yearmonth = now.format('YYYY年MM月');
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    const handleThreeSelectChange = (value) => {
+        setSelectedOption(value);
+    };
+
+    let selectComponent;
+
+    switch (selectedOption) {
+        case 'name':
+            selectComponent = <NameSelect />;
+            break;
+        case 'position':
+            selectComponent = <PositionSelect />;
+            break;
+        case 'skill':
+            selectComponent = <SkillSelect />;
+            break;
+        default:
+            selectComponent = null;
+            break;
+    }
+
     return (
         <>
             <Head>
@@ -46,7 +58,7 @@ export default function Home() {
                     <Ap>
                         <div className={styles.storeSelect}><StoreSelect /></div>
                         <div className={styles.yearMonth}>
-                            {yearmonth}
+                            <YearMonth />
                         </div>
                         <div className={styles.secondcom}>
                             <MainRadio />
@@ -56,7 +68,8 @@ export default function Home() {
                             </div>
                         </div>
                         <div className={styles.three}>
-                            <ThreeSelect />
+                            <ThreeSelect onChange={handleThreeSelectChange} />
+                            {selectComponent}
                         </div>
                         <div className={styles.edit}>
                             <DeleteButton /> <EditButton />

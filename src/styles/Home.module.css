@@ -22,8 +22,8 @@
 .yearMonth {
     position: absolute;
     top: 70px;
-    left: 5%;
-    transform: translateX(-5%);
+    left: 4vw;
+    /* transform: translateX(-5%); */
 }
 
 .mainRadio {
@@ -40,7 +40,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
-    width: 91%;
+    width: 92%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -65,12 +65,13 @@
 
 .week {
     width: 100%;
+
 }
 
 .table {
     position: absolute;
     top: 230px;
-    width: 91%;
+    width: 92vw;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -78,15 +79,13 @@
 .three {
     position: absolute;
     top: 180px;
-    left: 5%;
-    transform: translateX(-5%);
+    left: 4vw;
 }
 
 .edit {
     position: absolute;
     top: 180px;
-    left: 95%;
-    transform: translateX(-95%);
+    right: 4vw;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;

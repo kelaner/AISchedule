@@ -9,7 +9,7 @@ const end = dayjs().endOf('week');
 
 const columns = [
     {
-        title: <div> 周一<br />{start.format('MM月DD日')}</div>,
+        title: <div> 周一<br />{start.format('M月D日')}</div>,
         dataIndex: 'mon',
         key: 'mon',
         align: 'center',
@@ -24,7 +24,7 @@ const columns = [
         },
     },
     {
-        title: <div> 周二<br />{start.add(1, 'day').format('MM月DD日')}</div>,
+        title: <div> 周二<br />{start.add(1, 'day').format('M月D日')}</div>,
         dataIndex: 'tue',
         key: 'tue',
         align: 'center',
@@ -39,7 +39,7 @@ const columns = [
         },
     },
     {
-        title: <div> 周三<br />{start.add(2, 'day').format('MM月DD日')}</div>,
+        title: <div> 周三<br />{start.add(2, 'day').format('M月D日')}</div>,
         dataIndex: 'wed',
         key: 'wed',
         align: 'center',
@@ -54,7 +54,7 @@ const columns = [
         },
     },
     {
-        title: <div> 周四<br />{start.add(3, 'day').format('MM月DD日')}</div>,
+        title: <div> 周四<br />{start.add(3, 'day').format('M月D日')}</div>,
         dataIndex: 'thu',
         key: 'thu',
         align: 'center',
@@ -69,7 +69,7 @@ const columns = [
         },
     },
     {
-        title: <div> 周五<br />{start.add(4, 'day').format('MM月DD日')}</div>,
+        title: <div> 周五<br />{start.add(4, 'day').format('M月D日')}</div>,
         dataIndex: 'fri',
         key: 'fri',
         align: 'center',
@@ -84,7 +84,7 @@ const columns = [
         },
     },
     {
-        title: <div> 周六<br />{start.add(5, 'day').format('MM月DD日')}</div>,
+        title: <div> 周六<br />{start.add(5, 'day').format('M月D日')}</div>,
         dataIndex: 'sat',
         key: 'sat',
         align: 'center',
@@ -99,7 +99,7 @@ const columns = [
         },
     },
     {
-        title: <div> 周日<br />{end.format('MM月DD日')}</div>,
+        title: <div> 周日<br />{end.format('M月D日')}</div>,
         dataIndex: 'sun',
         key: 'sun',
         align: 'center',
@@ -124,37 +124,52 @@ const TableRow = ({ workTime, name, position }) => {
     return (
         <>
             {name ? (
-                <>
+                <div style={{
+                    cursor: "pointer",
+                }}
+                >
                     <Input
                         placeholder="工作时间"
                         value={w}
-                        onChange={(e) => setW(e.target.value)}
-                        style={{ textAlign: 'center' }}
+                        // onChange={(e) => setW(e.target.value)}
+                        style={{
+                            textAlign: 'center',
+                            cursor: "pointer",
+                            caretColor: 'transparent'
+                        }}
                         bordered={false}
                     />
                     <br />
                     <Input
                         placeholder="姓名"
                         value={n}
-                        onChange={(e) => setN(e.target.value)}
-                        style={{ textAlign: 'center' }}
+                        // onChange={(e) => setN(e.target.value)}
+                        style={{
+                            textAlign: 'center',
+                            cursor: "pointer",
+                            caretColor: 'transparent'
+                        }}
                         bordered={false}
                     />
                     <br />
                     <Input
                         placeholder="职位"
                         value={p}
-                        onChange={(e) => setP(e.target.value)}
-                        style={{ textAlign: 'center' }}
+                        // onChange={(e) => setP(e.target.value)}
+                        style={{
+                            textAlign: 'center',
+                            cursor: "pointer",
+                            caretColor: 'transparent'
+                        }}
                         bordered={false}
                     />
-                </>
+                </div>
             ) : (
                 <div style={{
                     textAlign: 'center',
                     cursor: "pointer",
                 }}
-                    onClick={() => console.log('change')}
+                // onClick={() => console.log('change')}
                 >
                     开放班次
                 </div>
