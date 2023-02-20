@@ -12,7 +12,7 @@ const onChange = (e) => {
 
 const MainRadio = () => (
     <div className={styles.mainRadio}>
-       
+
         <Radio.Group onChange={onChange} defaultValue="week">
             <div className={styles.radioButton}>
                 <Radio.Button value="day">按日查看</Radio.Button>

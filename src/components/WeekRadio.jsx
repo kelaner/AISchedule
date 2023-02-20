@@ -27,15 +27,17 @@ function WeekRadio() {
                 ><strong>&lt;</strong></Button>
                 <div>
                     周一 -- 周日<br />
-                    {start.subtract(1, 'week').format('MM月DD日')} -- {end.subtract(1, 'week').format('MM月DD日')}
+                    {start.subtract(1, 'week').format('M月D日')} -- {end.subtract(1, 'week').format('M月D日')}
+                </div>
+                <div style={{
+                    borderBottom: '2px solid #6ea2bf'
+                }}>
+                    周一 -- 周日<br />
+                    {start.format('M月D日')} -- {end.format('M月D日')}
                 </div>
                 <div>
                     周一 -- 周日<br />
-                    {start.format('MM月DD日')} -- {end.format('MM月DD日')}
-                </div>
-                <div>
-                    周一 -- 周日<br />
-                    {start.add(1, 'week').format('MM月DD日')} -- {end.add(1, 'week').format('MM月DD日')}
+                    {start.add(1, 'week').format('M月D日')} -- {end.add(1, 'week').format('M月D日')}
                 </div>
 
                 <Button

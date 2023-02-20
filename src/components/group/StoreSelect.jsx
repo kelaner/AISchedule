@@ -8,9 +8,10 @@ const StoreSelect = () => (
     <Space wrap>
         <Select
             defaultValue="1号门店"
+            size='large'
             style={{
                 width: 130,
-                textAlign: 'center',                
+                textAlign: 'center',
             }}
             onChange={handleChange}
             options={[
