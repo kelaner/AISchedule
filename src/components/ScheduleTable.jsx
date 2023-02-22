@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, Input } from 'antd';
 import dayjs from 'dayjs';
 
@@ -116,14 +116,22 @@ const columns = [
 ];
 
 
-const TableRow = ({ workTime, name, position }) => {
+const TableRow = ({ workTime, name, position, toDelete }) => {
     const [w, setW] = useState(workTime);
     const [n, setN] = useState(name);
     const [p, setP] = useState(position);
 
+    const onDelete = () => {
+        console.log(toDelete)
+        if (toDelete) {
+            console.log('delete:' + name);
+            setN(null)
+        }
+    };
+
     return (
         <>
-            {name ? (
+            {n ? (
                 <div style={{
                     cursor: "pointer",
                 }}
@@ -131,6 +139,7 @@ const TableRow = ({ workTime, name, position }) => {
                     <Input
                         placeholder="工作时间"
                         value={w}
+                        onClick={onDelete}
                         // onChange={(e) => setW(e.target.value)}
                         style={{
                             textAlign: 'center',
@@ -143,6 +152,7 @@ const TableRow = ({ workTime, name, position }) => {
                     <Input
                         placeholder="姓名"
                         value={n}
+                        onClick={onDelete}
                         // onChange={(e) => setN(e.target.value)}
                         style={{
                             textAlign: 'center',
@@ -155,6 +165,7 @@ const TableRow = ({ workTime, name, position }) => {
                     <Input
                         placeholder="职位"
                         value={p}
+                        onClick={onDelete}
                         // onChange={(e) => setP(e.target.value)}
                         style={{
                             textAlign: 'center',
@@ -177,39 +188,44 @@ const TableRow = ({ workTime, name, position }) => {
         </>
     );
 };
-const ScheduleTable = () => {
-    const [tableData, setTableData] = useState([
-        {
-            key: '1',
-            mon: <TableRow workTime="9:00-17:00" name="张三" position="经理" />,
-            tue: <TableRow workTime="9:00-17:00" name={null} />,
-            wed: <TableRow workTime="9:00-17:00" name="王五" position="员工" />,
-            thu: <TableRow workTime="9:00-17:00" name="赵六" position="员工" />,
-            fri: <TableRow workTime="9:00-17:00" name="孙七" position="主管" />,
-            sat: <TableRow workTime="9:00-17:00" name={null} />,
-            sun: <TableRow workTime="9:00-17:00" name="吴九" position="经理" />,
-        },
-        {
-            key: '2',
-            mon: <TableRow workTime="9:00-17:00" name="张三" position="经理" />,
-            tue: <TableRow workTime="9:00-17:00" name="李四" position="主管" />,
-            wed: <TableRow workTime="9:00-17:00" name={null} />,
-            thu: <TableRow workTime="9:00-17:00" name="赵六" position="员工" />,
-            fri: <TableRow workTime="9:00-17:00" name={null} />,
-            sat: <TableRow workTime="9:00-17:00" name="周八" position="员工" />,
-            sun: <TableRow workTime="9:00-17:00" name="吴九" position="经理" />,
-        },
-        {
-            key: '3',
-            mon: <TableRow workTime="9:00-17:00" name="张三" position="经理" />,
-            tue: <TableRow workTime="9:00-17:00" name={null} />,
-            wed: <TableRow workTime="9:00-17:00" name="王五" position="员工" />,
-            thu: <TableRow workTime="9:00-17:00" name="赵六" position="员工" />,
-            fri: <TableRow workTime="9:00-17:00" name="孙七" position="主管" />,
-            sat: <TableRow workTime="9:00-17:00" name={null} />,
-            sun: <TableRow workTime="9:00-17:00" name="吴九" position="经理" />,
-        },
-    ]);
+const ScheduleTable = ({ valueToDelete }) => {
+    useEffect(() => {
+        setTableData([
+            {
+                key: '1',
+                mon: <TableRow workTime="9:00-17:00" name="张三" position="经理" toDelete={valueToDelete} />,
+                tue: <TableRow workTime="9:00-17:00" name={null} />,
+                wed: <TableRow workTime="9:00-17:00" name="王五" position="员工" toDelete={valueToDelete} />,
+                thu: <TableRow workTime="9:00-17:00" name="赵六" position="员工" toDelete={valueToDelete} />,
+                fri: <TableRow workTime="9:00-17:00" name="孙七" position="主管" toDelete={valueToDelete} />,
+                sat: <TableRow workTime="9:00-17:00" name={null} />,
+                sun: <TableRow workTime="9:00-17:00" name="吴九" position="经理" toDelete={valueToDelete} />,
+            },
+            {
+                key: '2',
+                mon: <TableRow workTime="9:00-17:00" name="张三" position="经理" toDelete={valueToDelete} />,
+                tue: <TableRow workTime="9:00-17:00" name="李四" position="主管" toDelete={valueToDelete} />,
+                wed: <TableRow workTime="9:00-17:00" name={null} />,
+                thu: <TableRow workTime="9:00-17:00" name="赵六" position="员工" toDelete={valueToDelete} />,
+                fri: <TableRow workTime="9:00-17:00" name={null} />,
+                sat: <TableRow workTime="9:00-17:00" name="周八" position="员工" toDelete={valueToDelete} />,
+                sun: <TableRow workTime="9:00-17:00" name="吴九" position="经理" toDelete={valueToDelete} />,
+            },
+            {
+                key: '3',
+                mon: <TableRow workTime="9:00-17:00" name="张三" position="经理" toDelete={valueToDelete} />,
+                tue: <TableRow workTime="9:00-17:00" name={null} />,
+                wed: <TableRow workTime="9:00-17:00" name="王五" position="员工" toDelete={valueToDelete} />,
+                thu: <TableRow workTime="9:00-17:00" name="赵六" position="员工" toDelete={valueToDelete} />,
+                fri: <TableRow workTime="9:00-17:00" name="孙七" position="主管" toDelete={valueToDelete} />,
+                sat: <TableRow workTime="9:00-17:00" name={null} />,
+                sun: <TableRow workTime="9:00-17:00" name="吴九" position="经理" toDelete={valueToDelete} />,
+            },
+        ])
+    }, [valueToDelete])
+
+
+    const [tableData, setTableData] = useState(null);
 
     return (
         <Table

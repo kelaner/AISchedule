@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ConfigProvider, App as Ap } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import styles from '@/styles/Home.module.css'
@@ -47,6 +47,21 @@ export default function Home() {
             break;
     }
 
+    const [valueToDelete, setValueToDelete] = useState(false);
+    const [isDanger, setIsDanger] = useState(false);
+
+    const handleDelete = () => {
+        if (valueToDelete == false) {
+            setValueToDelete(true);
+            setIsDanger(true)
+            console.log('触发删除');
+        } else {
+            setValueToDelete(false);
+            setIsDanger(false)
+            console.log('关闭删除');
+        }
+    }
+
     return (
         <>
             <Head>
@@ -72,10 +87,18 @@ export default function Home() {
                             {selectComponent}
                         </div>
                         <div className={styles.edit}>
-                            <DeleteButton /> <EditButton />
+                            <DeleteButton
+                                isDanger={isDanger}
+                                onClick={handleDelete}
+                            />
+                            <EditButton
+
+                            />
                         </div>
                         <div className={styles.table}>
-                            <ScheduleTable />
+                            <ScheduleTable
+                                valueToDelete={valueToDelete}
+                            />
                         </div>
                     </Ap>
                 </ConfigProvider>

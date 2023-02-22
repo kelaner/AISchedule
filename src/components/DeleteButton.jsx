@@ -1,9 +1,19 @@
 import { Button } from 'antd';
 
-const DeleteButton = () => {
+const DeleteButton = ({ isDanger,onClick }) => {
+    const handleClick = () => {
+        onClick();
+    };
+
     return (
         <>
-            <Button size={'large'}>删除</Button>
+            <Button
+                danger={isDanger}
+                size={'large'}
+                onClick={handleClick}
+            >
+                删除
+            </Button>
         </>
     );
 };
